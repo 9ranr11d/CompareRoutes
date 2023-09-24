@@ -1,11 +1,20 @@
 package com.example.compareroutes
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.compareroutes.databinding.ActivityMainBinding
+import net.daum.mf.map.api.MapView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Kakao Map
+        val mapView = MapView(this)
+        binding.mapView.addView(mapView)
     }
 }
